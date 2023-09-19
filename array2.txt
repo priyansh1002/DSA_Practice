@@ -1,0 +1,35 @@
+question 2 : reversing the array without using another array.
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int display(vector<int> &v, int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        cout<<v[i]<<" ";
+    }
+    cout<<endl;
+}
+
+int main()
+{
+    int n;
+    cout<<"enter the size of the array : ";
+    cin>>n;
+    vector<int> arr;
+    cout<<"enter the elemnts in the array : ";
+    for(int i=0;i<n;i++)
+    {int p;
+        cin>>p;
+        arr.push_back(p);
+    }
+    display(arr,n);
+    for(int i=0,j=n-1;i<=j;i++,j--)
+    {
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
+    display(arr,n);
+}
