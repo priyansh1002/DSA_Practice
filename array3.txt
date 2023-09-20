@@ -1,0 +1,48 @@
+question 3: Rotate the given array by k steps, where K is a non-negative number.
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int display(vector<int> &v, int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        cout<<v[i]<<" ";
+    }
+    cout<<endl;
+}
+int reversepart(vector<int> &v,int n, int i, int j)
+{
+        for(i,j;i<=j;i++,j--)
+    {
+        int temp=v[i];
+        v[i]=v[j];
+        v[j]=temp;
+    }
+    return 0;
+}
+
+int main()
+{
+    int n;int i,j;
+    cout<<"enter the size of the array : ";
+    cin>>n;
+    vector<int> arr;
+    cout<<"enter the elemnts in the array : ";
+    for(int i=0;i<n;i++)
+    {int p;
+        cin>>p;
+        arr.push_back(p);
+    }
+    display(arr,n);
+    int k;
+    cout<<"K th term you have to rotate from :";
+    cin>>k;
+
+    reversepart(arr,n,0,n-k-1);
+    reversepart(arr,n,n-k,n-1);
+    reversepart(arr,n,0,n-1);
+    display(arr,n);
+    
+}
