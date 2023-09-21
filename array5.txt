@@ -1,0 +1,53 @@
+Question 5: sorting the array for 0 and 1. BY two pointer approach.
+
+
+
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+void display(vector<int>& v,int n )
+{
+    for(int j=0;j<n;j++)
+    {
+        cout<<v[j]<<" ";
+    }
+}
+int sort(vector<int>& v, int n)
+{int i=0;
+ int j=n-1;
+    while(i<j)
+    {
+        if(v[i]==0) i++;
+        if(v[j]==1) j--;
+        if(i>j) break;
+        if(v[i]==1 && v[j]==0)
+        {
+            v[i]=0;
+            v[j]=1;
+            i++;
+            j--;
+        }
+    }
+    return 0;
+}
+int main()
+{
+    int n;
+    cout<<"enter the size of the array : ";
+    cin>>n;
+    vector<int> v;
+    cout<<"enter the array : ";
+    for(int i=0;i<n;i++)
+    {
+        int p;
+        cin>>p;
+        v.push_back(p);
+    }
+    display(v,n);
+    cout<<endl;
+    sort(v,n);
+    display(v,n);
+    
+}
