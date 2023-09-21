@@ -1,0 +1,51 @@
+Question 4: sorting 0 and 1 without using sort in built function.
+
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+void display(vector<int>& v,int n )
+{
+    for(int j=0;j<n;j++)
+    {
+        cout<<v[j]<<" ";
+    }
+}
+int sort(vector<int>& v, int n)
+{int a=0,b=0;
+    for(int i=0;i<n;i++)
+    {
+        if(v[i]==0)
+          a++;
+          else
+          b++;
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(i<a)
+          v[i]=0;
+        else
+          v[i]=1;
+    }
+    return 0;
+}
+int main()
+{
+    int n;
+    cout<<"enter the size of the array : ";
+    cin>>n;
+    vector<int> v;
+    cout<<"enter the array : ";
+    for(int i=0;i<n;i++)
+    {
+        int p;
+        cin>>p;
+        v.push_back(p);
+    }
+    display(v,n);
+    cout<<endl;
+    sort(v,n);
+    display(v,n);
+    
+}
